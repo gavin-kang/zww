@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-demo</title>
+    <!-- 开发环境版本，包含了用帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link href="../../static/vendor/bootstrap-3.3.7-dist/css/bootstrap.css"/>
+    <!-- 生产环境版本，优化了尺寸和速度
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    -->
+</head>
+<body class="container">
+<div id="app">
+    {{ message }}
+</div>
+<div id="hello">
+    <span>这里是一段文本中不能更改的部分，以下是可以被修改的部分:<span style="color:red"><br/>{{change}}</span></span>
+    <br/>
+    <input type="text" v-model="change"/>
+    <br/>
+    <button v-on:click="reverise">翻转</button>
+</div>
+
+<script type="text/javascript">
+    var app = new Vue({el:'#app',data:{
+            message : 'Hello Vue.js!'
+        }})
+
+    var hello = new Vue({
+        el:'#hello',
+        data:{
+            change:'changed'
+        },
+        methods:{
+            reverise : function(){
+                this.change = this.change.split('').reverse().join('')
+            }
+        }
+    })
+</script>
+</body>
+</html>

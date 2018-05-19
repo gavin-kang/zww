@@ -1,0 +1,13 @@
+server:
+  port: 80
+  session-timeout: 30
+  tomcat.max-threads: 0
+  tomcat.uri-encoding: UTF-8
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/favorites?useUnicode=true&charaterEncoding=utf-8&allowMultiQueries=true&serverTimezone=GMT%2b8&useSSL=true
+    username: root
+    password: powerdata
+    type: com.alibaba.druid.pool.DruidDataSource

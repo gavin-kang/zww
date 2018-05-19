@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/vendor/bootstrap-3.3.7-dist/css/bootstrap.css}"/>
+    <title>Users</title>
+</head>
+<body class="container">
+    <br/>
+    <h1>用户列表</h1>
+    <br/>
+    <div class="form-group">
+        <div class="col-sm-2 control-label">
+            <a th:href="@{/users/toAdd}" class="btn btn-info">add</a>
+        </div>
+    </div>
+    <br/>
+    <div style="width:80%">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>OutDate</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user,userStat : ${users}">
+                <td th:text="${userStat.index + 1}"></td>
+                <td th:text="${user.id}">1</td>
+                <td th:text="${user.userName}">kang</td>
+                <td th:text="${user.passWord}">16888</td>
+                <td th:text="${user.email}">kangqing2008@163.com</td>
+                <td th:text="${user.outDate}">21180512</td>
+                <!-- <td><a th:href="@{/users/toUpdate} + '?id=' + ${user.id}" class="btn btn-info">update</a></td>-->
+                <td><a th:href="@{/users/toUpdate(id=${user.id})}" class="btn btn-info">update</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
